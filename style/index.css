@@ -55,9 +55,8 @@ End of Reset
 * {
   font-size: 62.5%;
 }
-html {
-    
-  width: 100vw;
+html {    
+    max-width: 100%;
 }
 @keyframes hover {
     0% {transform: rotate(0deg);}
@@ -66,42 +65,44 @@ html {
     75% {transform: rotate(2deg);}
     100% {transform: rotate(-1deg);}
   }
-/*End Foundation*/
+/*End Foundation
+
+/////for identifying elements in the browser/////
+    border: 3px solid red;
+    box-sizing: border-box;
+*/
 header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 10vh;
+    height: 5vh;
     padding: 3%;
-    border: 3px solid red;
-    box-sizing: border-box;
 }
 header h1 {
     font-size: 3rem;
     color: chocolate;
     width: 70%;
-    border: 3px solid red;
-    box-sizing: border-box;
 }
 nav {
     display: flex;
     justify-content: flex-end;
     align-items: center;
-    border: 3px solid red;
-    box-sizing: border-box;
     width: 100%;
 }
 nav a {
+    display: flex;
     background-color: rgb(238, 238, 238);
     font-size: 2rem;
     text-decoration: none;
     align-items: center;
+    justify-content: center;
     border: 1px solid black;
+    box-sizing: border-box;
     border-radius: 5px;
     text-align: center;
-    padding: 0 2rem;
+    width: 10ch;
     margin: 0 1%;
-    height: 40px;
+    height: calc(2rem + 4px);
     color: chocolate;
 
 }
@@ -131,7 +132,7 @@ main {
     align-items: center;
     margin: 2% auto;
     width: 80%;
-    height: 500px;
+    height: 40vh;
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),url("https://picsum.photos/id/15/1000/500");
     background-size: cover;
 }
@@ -144,13 +145,14 @@ main {
 .intro a{
     display: flex;
     font-size: 2rem;
-    text-decoration: none;
+    justify-content: center;
     align-items: center;
+    text-decoration: none;
     border: 1px solid black;
     border-radius: 5px;
     text-align: center;
     padding: 0 30px;
-    height: 40px;
+    height: calc(2rem + 1ch);
     width: fit-content;
     color: chocolate;
     background-color: white;
@@ -169,16 +171,17 @@ main {
 }
 .gallery {
     display: flex;
-    height: 350px;
-    border: 2px solid black;
-    gap: 15px;
+    min-width: 100%;
     justify-content: center;
     align-items: center;
 }
 .gallery-item {
+    display: flex;
     flex-direction: column;
-    align-items: center;
     width: 400px;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1%;
 }
 .gallery-item-img {
     display: inline-flex;
@@ -228,3 +231,56 @@ footer {
     text-decoration: none;
     color: chocolate;
 }
+
+
+@media screen and (max-width: 1110px) {
+    header {
+        flex-direction: column;
+    }
+    header h1 {
+        display: flex;
+        justify-content: center;
+        margin-top: 1%;
+        font-size: 2rem;
+    }
+    nav {
+        justify-content: center;
+        margin-top: 1%;
+        width: 100%;
+    }
+    nav a {
+        font-size: 1.5rem;
+    } 
+    .intro h2 {
+        font-size: 3rem;   
+    }
+    .intro a{
+        font-size: 1.5rem;
+        height: calc(1.5rem + 6px);
+    }
+    .gallery {
+        flex-direction: column;
+    }
+    .gallery-item {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+}
+@media screen and (max-width: 660px) {
+    .intro {
+        height: 30vh;
+    }
+    nav a {
+        font-size: 1rem;
+    }
+    .gallery-item {
+        width: 100%;
+        flex-direction: column;
+        justify-content: space-around;
+        height: calc(200px + 2rem);
+    }
+    .gallery-item img {
+        width: 200px;
+        height: 200px;
+    }
